@@ -6,12 +6,16 @@ import { decrementar, incrementar, setear } from './reducer';
 import './App.css';
 import Button from './modulos/Button';
 import Card from './modulos/Card';
+import Center from './modulos/Center';
 import Container from './modulos/Container';
 import Input from './modulos/Input';
+import Link from './modulos/Link';
 import Title from './modulos/Title';
 
 // import UserForm from './modulos/form/UserForm';
 import miThunk from './thunk';
+
+
 
 
 
@@ -46,7 +50,10 @@ class App extends React.Component<IProps, IState> {
 					<Title>Iniciar session</Title>
 					<Input label='Correo' placeholder='ingrese correo'/>
 					<Input label='Contrasenia' placeholder='ingrese contrasenia'/>
-					<Button>Enviar</Button>
+					<Button block={true}>Enviar</Button>
+					<Center>
+						<Link >Ir al registro</Link>
+					</Center>
 				</Card>
 			</Container>
 		);
