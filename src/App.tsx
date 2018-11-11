@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { decrementar, incrementar, setear } from './reducer';
 
 import './App.css';
-import UserForm from './modulos/form/UserForm';
+import Card from './modulos/Card';
+// import UserForm from './modulos/form/UserForm';
 import miThunk from './thunk';
 
 class App extends React.Component<IProps, IState> {
@@ -32,16 +33,9 @@ class App extends React.Component<IProps, IState> {
 		// const { incrementar, decrementar, valor } = this.props;
 
 		return (
-			<div className="App">
-				<UserForm onSubmit={this.handleSubmit } />
-
-				<p>{this.props.valor}</p>
-				<button onClick={this.props.incrementar}>Incrementar</button>
-				<button onClick={this.props.decrementar}>Decrementar</button>
-				<input name='valor' onChange={this.handleChange} />
-				<button onClick={this.handleSetear}>Setear</button>
-
-			</div>
+			<Card>
+				lala
+			</Card>
 		);
 	}
 
