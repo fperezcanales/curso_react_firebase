@@ -4,13 +4,21 @@ import { connect } from 'react-redux';
 import { decrementar, incrementar, setear } from './reducer';
 
 import './App.css';
+import Button from './modulos/Button';
 import Card from './modulos/Card';
+import Container from './modulos/Container';
+import Input from './modulos/Input';
+import Title from './modulos/Title';
+
 // import UserForm from './modulos/form/UserForm';
 import miThunk from './thunk';
 
+
+
+
 class App extends React.Component<IProps, IState> {
 
-	public constructor(props){
+	public constructor(props) {
 		super(props);
 		this.props.miThunk('lala');
 	}
@@ -25,17 +33,22 @@ class App extends React.Component<IProps, IState> {
 		this.setState({ valor: value });
 
 	}
-	public handleSubmit = ( e: any) => {
+	public handleSubmit = (e: any) => {
 
-		alert(JSON.stringify( e));
+		alert(JSON.stringify(e));
 	}
 	public render() {
 		// const { incrementar, decrementar, valor } = this.props;
 
 		return (
-			<Card>
-				lala
-			</Card>
+			<Container>
+				<Card>
+					<Title>Iniciar session</Title>
+					<Input label='Correo' placeholder='ingrese correo'/>
+					<Input label='Contrasenia' placeholder='ingrese contrasenia'/>
+					<Button>Enviar</Button>
+				</Card>
+			</Container>
 		);
 	}
 
@@ -46,7 +59,7 @@ interface IState {
 interface IProps {
 	setear: any;
 	incrementar: any;
-	decrementar: any; 
+	decrementar: any;
 	valor: any;
 	miThunk: any;
 }
@@ -59,7 +72,7 @@ const mapStateToProps = (state: any) => {
 }
 const mapDispatchToProps = (dispatch: any) => ({
 	decrementar: () => dispatch(decrementar()),
-	incrementar: () => dispatch(incrementar()),	
+	incrementar: () => dispatch(incrementar()),
 	miThunk: (payload: any) => dispatch(miThunk(payload)),
 	setear: (payload: any) => dispatch(setear(payload)),
 })
