@@ -5,9 +5,14 @@ import { decrementar, incrementar, setear } from './reducer';
 
 import './App.css';
 import UserForm from './modulos/form/UserForm';
+import miThunk from './thunk';
 
 class App extends React.Component<IProps, IState> {
 
+	public constructor(props){
+		super(props);
+		this.props.miThunk('lala');
+	}
 	public handleSetear = (e: any) => {
 		// const { setear } = this.props;
 		const { valor } = this.state;
@@ -41,21 +46,15 @@ class App extends React.Component<IProps, IState> {
 	}
 
 }
-/*App.propTypes = {
-	incrementar: PropTypes.any,
-	decrementar: PropTypes.any,
-	valor: PropTypes.any,
-	setear: PropTypes.any,
-}*/
 interface IState {
 	valor: number;
 }
-
 interface IProps {
 	setear: any;
 	incrementar: any;
 	decrementar: any; 
 	valor: any;
+	miThunk: any;
 }
 const mapStateToProps = (state: any) => {
 	// tslint:disable-next-line:no-console
@@ -67,6 +66,7 @@ const mapStateToProps = (state: any) => {
 const mapDispatchToProps = (dispatch: any) => ({
 	decrementar: () => dispatch(decrementar()),
 	incrementar: () => dispatch(incrementar()),	
-	setear: (payload: any) => dispatch(setear(payload))
+	miThunk: (payload: any) => dispatch(miThunk(payload)),
+	setear: (payload: any) => dispatch(setear(payload)),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(App);
