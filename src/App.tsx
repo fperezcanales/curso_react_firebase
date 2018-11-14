@@ -1,23 +1,17 @@
 import * as React from 'react';
+import { Route } from 'react-router';
 
 import { connect } from 'react-redux';
 import { decrementar, incrementar, setear } from './reducer';
 
 import './App.css';
-import Button from './modulos/Button';
-import Card from './modulos/Card';
-import Center from './modulos/Center';
-import Container from './modulos/Container';
-import Input from './modulos/Input';
-import Link from './modulos/Link';
-import Title from './modulos/Title';
 
 // import UserForm from './modulos/form/UserForm';
+import Login from './containers/Auth/Login';
+import Register from './containers/Auth/Register';
+import NewsFeed from './containers/NewsFeed/index';
+
 import miThunk from './thunk';
-
-
-
-
 
 
 class App extends React.Component<IProps, IState> {
@@ -45,17 +39,11 @@ class App extends React.Component<IProps, IState> {
 		// const { incrementar, decrementar, valor } = this.props;
 
 		return (
-			<Container>
-				<Card>
-					<Title>Iniciar session</Title>
-					<Input label='Correo' placeholder='ingrese correo'/>
-					<Input label='Contrasenia' placeholder='ingrese contrasenia'/>
-					<Button block={true}>Enviar</Button>
-					<Center>
-						<Link >Ir al registro</Link>
-					</Center>
-				</Card>
-			</Container>
+			<div>
+				<Route exact={true} path='/' component={Login} />
+				<Route path='/register' component={Register} />
+				<Route path='/newsfeeds' component={NewsFeed} />
+			</div>
 		);
 	}
 
