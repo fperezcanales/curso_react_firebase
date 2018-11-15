@@ -7,11 +7,14 @@ import { decrementar, incrementar, setear } from './reducer';
 import './App.css';
 
 // import UserForm from './modulos/form/UserForm';
+import Navbar from './components/Navbar';
 import Login from './containers/Auth/Login';
 import Register from './containers/Auth/Register';
 import NewsFeed from './containers/NewsFeed/index';
 
+
 import miThunk from './thunk';
+
 
 
 class App extends React.Component<IProps, IState> {
@@ -41,8 +44,9 @@ class App extends React.Component<IProps, IState> {
 		return (
 			<div>
 				<Route exact={true} path='/' component={Login} />
-				<Route path='/register' component={Register} />
-				<Route path='/newsfeeds' component={NewsFeed} />
+				<Route exact={true} path='/register' component={Register} />
+				<Route path='/app' component={Navbar} />
+				<Route exact={true} path='/app/newsfeeds' component={NewsFeed} />
 			</div>
 		);
 	}

@@ -9,6 +9,7 @@ class NewsFeed extends React.Component{
         return (
             <Container>
                 <div><Post/></div>
+                <div><Post/></div>
             </Container>
         );
     }
