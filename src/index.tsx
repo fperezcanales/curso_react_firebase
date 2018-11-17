@@ -15,6 +15,8 @@ import './index.css';
 import createHistory from 'history/createBrowserHistory';
 import reducer from './reducer';
 import registerServiceWorker from './registerServiceWorker';
+
+import services from './service';
 /* function reducerApi ( state={} , action ){
   return state
 }*/
@@ -22,7 +24,7 @@ import registerServiceWorker from './registerServiceWorker';
 const store = createStore(combineReducers({
 	contador: reducer,
 	form: formReducer
-}), applyMiddleware(thunk));
+}), applyMiddleware(thunk.withExtraArgument( services )));
 
 const history = createHistory();
 
