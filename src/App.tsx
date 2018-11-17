@@ -11,7 +11,7 @@ import Navbar from './components/Navbar';
 import Login from './containers/Auth/Login';
 import Register from './containers/Auth/Register';
 import NewsFeed from './containers/NewsFeed/index';
-
+import Profile from './containers/Profile/index';
 
 import miThunk from './thunk';
 
@@ -47,6 +47,7 @@ class App extends React.Component<IProps, IState> {
 				<Route exact={true} path='/register' component={Register} />
 				<Route path='/app' component={Navbar} />
 				<Route exact={true} path='/app/newsfeeds' component={NewsFeed} />
+				<Route exact={true} path='/app/profile' component={Profile} />
 			</div>
 		);
 	}
